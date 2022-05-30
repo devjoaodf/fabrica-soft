@@ -1,13 +1,9 @@
 <?php
 include_once("conexao.php");
-$sql = "SELECT
-idUnidade,
-unidade.Nome,
-Funcionario.Nome
-FROM
-unidade inner Join funcionario ON unidade.DiretorUnidade = funcionario.idFuncionario";
+$sql = "SELECT * FROM funcionario,unidade";
+$sql .= " WHERE idFuncionario AND idUnidade";
 $resultado = mysqli_query($conexao, $sql);
-$arResultado = $resultado;
+$arResultado = mysqli_fetch_assoc($resultado);
 ?>
 <html>
     <body>
@@ -27,8 +23,8 @@ $arResultado = $resultado;
         do{
             ?>
         <tr>
-            <td><?php echo $resultado['idUnidade'];?></td>
-            <td><?php echo $resultado['nome_unidade'];?></td>
+            <td><?php echo $arResultado['idUnidade'];?></td>
+            <td><?php echo $arResultado['nome_unidade'];?></td>
             <td><?php echo $arResultado['sigla_unidade'];?></td>
             <td><?php echo $arResultado['nome_completo'];?></td>             
         </tr>
