@@ -1,2 +1,2 @@
 # fabrica-soft
-Proejto para controle de alunos/rematricula
+Projeto para controle de alunos/rematricula
